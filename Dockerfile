@@ -1,4 +1,6 @@
 FROM alpine
+RUN echo 'radius:x:1100:1100:radius:/var/log/radius:/sbin/nologin' >> /etc/passwd && \
+    echo 'radius:x:1100:radius' >> /etc/group
 RUN apk update && \
     apk upgrade && \
     apk add --update freeradius freeradius-ldap && \
